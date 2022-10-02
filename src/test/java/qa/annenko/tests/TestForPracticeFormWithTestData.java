@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selenide.$;
 public class TestForPracticeFormWithTestData extends TestBase {
 
     PracticeFormPages practiceFormPages = new PracticeFormPages();
-//    TestBase testBase = new TestBase();
 
     @Test
     public void checkFieldsOfForm() {
