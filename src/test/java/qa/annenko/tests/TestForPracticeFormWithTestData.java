@@ -13,12 +13,7 @@ import static qa.annenko.tests.TestData.lastName;
 public class TestForPracticeFormWithTestData extends TestBase {
 
     PracticeFormPages practiceFormPages = new PracticeFormPages();
-
-    static void setUp() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x680";
-        Configuration.holdBrowserOpen = true;
-    }
+//    TestBase testBase = new TestBase();
 
     @Test
     public void checkFieldsOfForm() {
@@ -26,24 +21,26 @@ public class TestForPracticeFormWithTestData extends TestBase {
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
-                .setGender("Female")
+                .setGender(gender)
                 .setUserNumber(phone)
-                .setDateOfBirth(day, month, year);
-
-        $("#subjectsInput").setValue("History").pressEnter();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("Img/1.png");
-        $("#currentAddress").setValue("Test Current Address");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
+                .setDateOfBirth(day, month, year)
+                .setSubjectInput(subject)
+                .setHobbieInput(hobbie)
+                .uploadPicture(fullPicture)
+                .setCurrentAddressInput(address)
+                .setStateInput(state).setCityInput(city)
+                .clickSubmit();
 // Проверяем результат
         practiceFormPages.checkTableVisible()
-                .checkRegistrationTable("test", "Anna Abramova");
-        $(".modal-dialog").should(appear);
-        $(".table-responsive").shouldHave(text("Anna Abramova"), text("abramova@test.ru"), text("Female"), text("9222365736"),
-                text("History"), text("Test Current Address"), text("1.png"), text("Reading"), text("15 October,2009"), text("NCR Delhi"));
+                .checkRegistrationTable("Student Name", firstName + " " + lastName)
+                .checkRegistrationTable("Student Email", email)
+                .checkRegistrationTable("Gender", gender)
+                .checkRegistrationTable("Mobile", phone)
+                .checkRegistrationTable("Subjects", subject)
+                .checkRegistrationTable("Address", address)
+                .checkRegistrationTable("Picture", picture)
+                .checkRegistrationTable("Hobbies", hobbie)
+                .checkRegistrationTable("Date of Birth", day + " " + month + "," + year)
+                .checkRegistrationTable("State and City", state + " " + city);
     }
 }
