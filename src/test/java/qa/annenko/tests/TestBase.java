@@ -9,7 +9,6 @@ import qa.annenko.utils.Randoms;
 public class TestBase {
     Faker faker = new Faker();
     Randoms randoms = new Randoms();
-    private String imagePath = "Img/";
     String firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
@@ -17,11 +16,10 @@ public class TestBase {
             phone = faker.phoneNumber().subscriberNumber(10),
             day = String.valueOf(faker.number().numberBetween(10,30)),
             month = String.valueOf(randoms.getRandomMonth()),
-            year = String.valueOf(faker.number().numberBetween(2005,2020)),
+            year = String.valueOf(faker.number().numberBetween(1990,2022)),
             subject = "History",
             hobbie = "Reading",
             picture = "1.png",
-            fullPicture = imagePath + picture,
             address = faker.address().fullAddress(),
             state = "NCR",
             city = "Delhi";

@@ -1,15 +1,8 @@
 package qa.annenko.tests;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import qa.annenko.pages.PracticeFormPages;
-
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class TestForPracticeFormWithPageObject {
 
@@ -32,7 +25,7 @@ public class TestForPracticeFormWithPageObject {
                 .setDateOfBirth("15", "October", "2009")
                 .setSubjectInput("History")
                 .setHobbieInput("Reading")
-                .uploadPicture("Img/1.png")
+                .uploadPicture("1.png")
                 .setCurrentAddressInput("Test Current Address")
                 .setStateInput("NCR").setCityInput("Delhi")
                 .clickSubmit();

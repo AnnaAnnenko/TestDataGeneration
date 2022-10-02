@@ -26,7 +26,7 @@ public class TestForPracticeFormWithTestData extends TestBase {
                 .setDateOfBirth(day, month, year)
                 .setSubjectInput(subject)
                 .setHobbieInput(hobbie)
-                .uploadPicture(fullPicture)
+                .uploadPicture(picture)
                 .setCurrentAddressInput(address)
                 .setStateInput(state).setCityInput(city)
                 .clickSubmit();
